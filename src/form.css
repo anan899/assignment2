@@ -1,26 +1,32 @@
-.add {
+.container {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    background:cornsilk;
-
-
 }
 
-.add h2{
+.container h2{
     text-align: center;
 }
 
-form{
+.add{
     margin-left: auto;
     margin-right: auto;
     max-width:600px;
     max-height: 700px;
     width: 80%;
-    height:100vh;
+    height: 70vh;
 }
 
-form  input {
+.add  input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #020202;
+    border-radius:20px;
+    resize:vertical;
+}
+
+.bb input{
+    height: 50%;
     width: 100%;
     padding: 12px;
     border: 2px solid #020202;
@@ -33,14 +39,33 @@ form  input {
     display: inline-block;
 }
 
-.add .button{
+.container .press{
     display:flex;
     justify-content: space-evenly;
 }
 
-.add button{
+.container button{
     border-radius:20px;
     padding:10px;
     font-size:20px;
-    background:Bisque;
+    background:white;
 }
+
+.display{
+    margin-left: auto;
+    margin-right: auto;
+    max-width:600px;
+    max-height: 1000px;
+    width: 80%;
+    height:100vh;
+}
+
+.display div{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border:solid;
+    border-radius:20px;
+    padding:60px;
+}
+
