@@ -15,6 +15,12 @@ export default function CreateForm() {
     const [Intro, setIntro] = useState("");
     const [isOpen, setIsOpen] = useState();
 
+    const formFields = {Name:"",Spouse:"",Title:"",Intro:""};
+    const [params, setParams] = useState(formFields);
+    const clearForm=()=>setParams(formFields);
+
+
+
 
     return (
         <div className="container">
@@ -28,16 +34,16 @@ export default function CreateForm() {
             <div className="add" >
                 <h2>Western Royal Beauty</h2>
                 <label htmlFor= "name">Name</label>
-                <input type="text"  id = "Name"
+                <input type="text"    value={Name}
                        onChange={(event) => {setName(event.target.value);}}/>
                 <label htmlFor= "spouse">Spouse</label>
-                <input type="text"
+                <input type="text"    value ={Spouse}
                        onChange={(event) => {setSpouse(event.target.value);}}/>
                 <label htmlFor= "Title">Title</label>
-                <input type="text"
+                <input type="text"  value={Title}
                        onChange={(event) => {setTitle(event.target.value);}}/>
                 <label htmlFor= "Intro">Introduction</label>
-                <input  type="text"
+                <input type="text"   value={Intro}
                        onChange={(event) => {setIntro(event.target.value);}}/>
 
                 <p></p>
@@ -46,16 +52,13 @@ export default function CreateForm() {
                 <div className = "press">
                     <button  id = "1"
                         onClick={() => {
-                            setName("");
-                            setSpouse("");
-                            setTitle("");
-                            setIntro("");
                             dispatch(addBeauty({
                             id: beautyList[beautyList.length - 1].id + 1, Name:Name, Spouse:Spouse, Title:Title, Introduction:Intro}));
                         }}>
                         Add Beauty
                     </button>
                     <button  id = "2"
+                             onClick={clearForm}
                              >
                         Clear Form
                     </button>

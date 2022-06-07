@@ -1,3 +1,4 @@
+
 export const BeautyData =
     [
         {
@@ -41,3 +42,6 @@ export const BeautyData =
         }
 
     ];
+
+localStorage.clear();
+localStorage.setItem("beauty",JSON.stringify(BeautyData));
