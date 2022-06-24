@@ -1,24 +1,20 @@
 import "./form.css";
 import React, {useEffect,useState} from "react";
 import {useSelector, useDispatch} from "react-redux"
-import {addBeauty,deleteB} from "./beauty";
+import {addBeauty,deleteB} from "./redux/beauty";
 import Modal from "./Modal";
+
 
 
 export default function CreateForm() {
     const dispatch = useDispatch();
     const beautyList = useSelector((state) => state.beauty.value);
 
-    const [Name, setName] = useState("");
-    const [Spouse, setSpouse] = useState("");
-    const [Title, setTitle] = useState("");
-    const [Intro, setIntro] = useState("");
-    const [isOpen, setIsOpen] = useState();
+
 
     const [backendData, setBackendData] = useState([{}]);
-
     useEffect(()=>{
-        fetch("http://localhost:5000/api").then(
+        fetch('http://localhost:5000/beauty').then(
             response=>response.json()
         ).then(
             data=>{ setBackendData(data)}
@@ -26,9 +22,11 @@ export default function CreateForm() {
     },[]);
 
 
-    const formFields = {Name:"",Spouse:"",Title:"",Intro:""};
-    const [params, setParams] = useState(formFields);
-    const clearForm=()=>setParams(formFields);
+    const [Name, setName] = useState("");
+    const [Spouse, setSpouse] = useState("");
+    const [Title, setTitle] = useState("");
+    const [Intro, setIntro] = useState("");
+    const [isOpen, setIsOpen] = useState();
 
 
 
@@ -69,7 +67,7 @@ export default function CreateForm() {
                         Add Beauty
                     </button>
                     <button  id = "2"
-                             onClick={clearForm}
+
                     >
                         Clear Form
                     </button>
@@ -81,9 +79,9 @@ export default function CreateForm() {
             <br></br>
 
             <div className="display">
-                {(typeof backendData.beauty1 === 'undefined')?(
+                {(typeof backendData === 'undefined')?(
                     <h1>Loading</h1>):(
-                    backendData.beauty1.map((beauty,i)=>{
+                    backendData.map((beauty,i)=>{
                         return (
                             <div>
                                 <h1> {beauty.Name}</h1>
