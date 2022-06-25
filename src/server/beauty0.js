@@ -36,7 +36,7 @@ router.post('/',(req,res)=>{
         Name: req.body.Name,
         Spouse: req.body.Spouse,
         Title: req.body.Title,
-        Introduction: req.body.Introduction
+        Introduction: req.body.Intro
     }
     if(!newBeauty.Name){
         res.status(400).json({msg: 'Please include a name'});
