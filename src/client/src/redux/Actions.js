@@ -36,7 +36,7 @@ const deleteBeauty = async({id})=>{
 }
 
 const updateBeauty = async(id,Name,Spouse,Title,Intro)=>{
-    const response = await fetch(`http://localhost:5000/beauty`,{
+    const response = await fetch('http://localhost:5000/beauty/:'+ id ,{
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'

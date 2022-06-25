@@ -21,9 +21,9 @@ router.get('/', (req, res) =>{
 
 // get Single beauty by her id
 router.get('/:id',(req,res)=>{
-    const found = BeautyData.some(beauty=>beauty.id === parseInt(req.params.id));
+    const found = BeautyData.some(beauty=>beauty.id === req.params.id);
     if (found){
-        res.json(BeautyData.filter(beauty=>beauty.id === parseInt(req.params.id)));
+        res.json(BeautyData.filter(beauty=>beauty.id === req.params.id));
     }else{
         res.status(404).json({msg: `No beauty with the id ${req.params.id}`});
     }
@@ -48,11 +48,11 @@ router.post('/',(req,res)=>{
 
 // update a single Beauty
 router.put('/:id', (req,res)=>{
-    const found = BeautyData.some(beauty=>beauty.id === parseInt(req.params.id));
+    const found = BeautyData.some(beauty=>beauty.id === req.params.id);
     if(found){
         const updBeauty = req.body;
         BeautyData.forEach(beauty=>{
-            if (beauty.id === parseInt(req.params.id)){
+            if (beauty.id === req.params.id){
                 beauty.Name = updBeauty.Name ? updBeauty.Name : beauty.Name;
                 beauty.Spouse = updBeauty.Spouse ? updBeauty.Spouse : beauty.Spouse;
                 beauty.Title = updBeauty.Title? updBeauty.Title : beauty.Title;
@@ -69,11 +69,11 @@ router.put('/:id', (req,res)=>{
 
 // Delete Beauty
 router.delete('/:id',(req,res)=>{
-    const found = BeautyData.some(beauty=>beauty.id === parseInt(req.params.id));
+    const found = BeautyData.some(beauty=>beauty.id === req.params.id);
     if (found){
         res.json({
             msg:'Beauty deleted',
-            BeautyData:BeautyData.filter(beauty=>beauty.id !== parseInt(req.params.id))
+            BeautyData:BeautyData.filter(beauty=>beauty.id !== req.params.id)
         });
     }else{
         res.status(404).json({msg: `No beauty with the id ${req.params.id}`});
