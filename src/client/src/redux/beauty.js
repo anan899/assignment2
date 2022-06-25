@@ -14,9 +14,6 @@ const REQUEST_STATE = {
 const INITIAL_STATE = {
     beautyList: [],
     getBeauty: REQUEST_STATE.IDLE,
-    addBeauty: REQUEST_STATE.IDLE,
-    deleteBeauty:REQUEST_STATE.IDLE,
-    updateBeauty:REQUEST_STATE.IDLE,
     error: null
 };
 
