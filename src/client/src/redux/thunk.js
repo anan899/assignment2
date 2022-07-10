@@ -11,21 +11,21 @@ export const getBeautyAsync = createAsyncThunk(
 
 export const addBeautyAsync = createAsyncThunk(
     Add_Beauty,
-    async ({Name,Spouse,Title,Intro}) => {
-        return await action.addBeauty( Name,Spouse,Title,Intro );
+    async ({Name,Spouse,Title,Introduction}) => {
+        return await action.addBeauty( Name,Spouse,Title,Introduction );
     }
 );
 
 export const deleteBeautyAsync = createAsyncThunk(
     Delete_Beauty,
-    async ({id}) => {
+    async (id) => {
         return await action.deleteBeauty(id);
     }
 );
 
 export const updateBeautyAsync = createAsyncThunk(
     Update_Beauty,
-    async ({id,Name,Spouse,Title,Intro}) => {
-        return await action.updateBeauty(id,Name,Spouse,Title,Intro);
+    async ({id,Name,Spouse,Title,Introduction}) => {
+        return await action.updateBeauty({id,Name,Spouse,Title,Introduction});
     }
 );

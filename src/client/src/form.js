@@ -18,16 +18,16 @@ export default function CreateForm() {
 
 
 
-    const [ID, setID] = useState("");
+    const [id, setid] = useState("");
     const [Name, setName] = useState("");
     const [Spouse, setSpouse] = useState("");
     const [Title, setTitle] = useState("");
-    const [Intro, setIntro] = useState("");
+    const [Introduction, setIntro] = useState("");
     const [isOpen, setIsOpen] = useState();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addBeautyAsync({Name,Spouse,Title,Intro}));
+        dispatch(addBeautyAsync({Name,Spouse,Title,Introduction}));
         setName('');
         setSpouse('');
         setTitle('');
@@ -37,8 +37,8 @@ export default function CreateForm() {
 
     const handleSubmit1 = (e) => {
         e.preventDefault();
-        dispatch(updateBeautyAsync({ID,Name,Spouse,Title,Intro}));
-        setID('');
+        dispatch(updateBeautyAsync({id,Name,Spouse,Title,Introduction}));
+        setid('');
         setName('');
         setSpouse('');
         setTitle('');
@@ -46,6 +46,7 @@ export default function CreateForm() {
     };
 
     const clearForm=()=>{
+        setid('');
         setName('');
         setSpouse('');
         setTitle('');
@@ -76,7 +77,7 @@ export default function CreateForm() {
                 <input type="text"  value={Title}
                        onChange={(event) => {setTitle(event.target.value);}}/>
                 <label htmlFor= "Intro">Introduction</label>
-                <input type="text"   value={Intro}
+                <input type="text"   value={Introduction}
                        onChange={(event) => {setIntro(event.target.value);}}/>
 
                 <p></p>
@@ -108,20 +109,21 @@ export default function CreateForm() {
                             <h1> {beauty.Name}</h1>
                             <h1> Spouse: {beauty.Spouse}</h1>
                             <h1> Title: {beauty.Title}</h1>
-                            <h4>ID: {beauty.id}</h4>
+                            <h4>ID: {beauty._id}</h4>
                             <button
-                            onClick={()=>{
-                                dispatch(deleteBeautyAsync(beauty.id));
-                                console.log(beauty.id);
-                            }}>
+                                onClick={()=>{
+                                    dispatch(deleteBeautyAsync(beauty._id));
+                                    console.log(beauty._id);
+                                }}>
                                 Delete Beauty
                             </button>
                             <button onClick={()=>{
-                                setIsOpen(beauty.id);
+                                setIsOpen(beauty._id);
                             }}>View in popup</button>
-                            <Modal open={isOpen === beauty.id} onClose={()=>setIsOpen(undefined)}>
+                            <Modal open={isOpen === beauty._id} onClose={()=>setIsOpen(undefined)}>
                                 <h3> {beauty.Introduction}</h3>
                             </Modal>
+
 
                             <br></br>
                             <br></br>
@@ -133,9 +135,9 @@ export default function CreateForm() {
 
                             <form className="update"  onSubmit={handleSubmit1}>
                                 <h2>Update Information</h2>
-                                <label htmlFor= "ID">ID</label>
-                                <input type="text"    value={ID}
-                                       onChange={(event) => {setID(event.target.value);}}/>
+                                <label htmlFor= "ID">id</label>
+                                <input type="text"    value={id}
+                                       onChange={(event) => {setid(event.target.value);}}/>
                                 <label htmlFor= "name">Name</label>
                                 <input type="text"    value={Name}
                                        onChange={(event) => {setName(event.target.value);}}/>
@@ -146,7 +148,7 @@ export default function CreateForm() {
                                 <input type="text"  value={Title}
                                        onChange={(event) => {setTitle(event.target.value);}}/>
                                 <label htmlFor= "Intro">Introduction</label>
-                                <input type="text"   value={Intro}
+                                <input type="text"   value={Introduction}
                                        onChange={(event) => {setIntro(event.target.value);}}/>
                                 <p></p>
 

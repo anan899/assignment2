@@ -29,27 +29,28 @@ const addBeauty = async (Name,Spouse,Title,Intro) => {
 };
 
 
-const deleteBeauty = async({id})=>{
+const deleteBeauty = async(id)=>{
      fetch('http://localhost:5000/beauty/'+id,{
         method:'DELETE'
     }).then(res=>res.json());
 }
 
-const updateBeauty = async(id,Name,Spouse,Title,Intro)=>{
-    const response = await fetch('http://localhost:5000/beauty/:'+ id ,{
-        method:'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id,
-            Name,
-            Spouse,
-            Title,
-            Intro
-        })
+const updateBeauty = async({id,Name,Spouse,Title,Introduction})=>{
 
-    });
+    const response = await fetch('http://localhost:5000/beauty/'+id ,{
+        method:'PUT',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id,
+        Name,
+        Spouse,
+        Title,
+        Introduction
+    })
+
+});
 
     const data = await response.json();
     if (!response.ok) {
