@@ -61,14 +61,14 @@ router.get('/',(req,res)=>{
 })*/
 
 // get Single beauty by her id
-router.get('/:id',(req,res)=>{
-    const found = BeautyData.some(beauty=>beauty.id === req.params.id);
+/*router.get('/:id',(req,res)=>{
+    const found = BeautyData.some(beauty=>beauty._id === req.params.id);
     if (found){
-        res.json(BeautyData.filter(beauty=>beauty.id === req.params.id));
+        res.json(BeautyData.filter(beauty=>beauty._id === req.params.id));
     }else{
         res.status(404).json({msg: `No beauty with the id ${req.params.id}`});
     }
-})
+})*/
 
 // create a single beauty
 router.post('/',(req,res)=>{

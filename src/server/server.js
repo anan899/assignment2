@@ -6,7 +6,6 @@ const logger = require('morgan'); // build morgan logger middleware
 
 // mongo
 const mongoose = require("mongoose");
-const beauty2 = require("./beauty2");
 mongoose.connect("mongodb+srv://m001-student:m001-mongodb-basics@maysandbox.tfe2sxh.mongodb.net/myFirstDatabase?appName=mongosh+1.5.0" ,
     { useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=>{app.listen(5000,()=>{  // listens on port 3000 for connections
