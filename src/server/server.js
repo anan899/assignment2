@@ -3,12 +3,13 @@ const app = express(); // This app starts a server
 const path = require('path'); // provides utilities for working with file and directory paths
 const cookieParser = require('cookie-parser');
 const logger = require('morgan'); // build morgan logger middleware
+let PORT = process.env.PORT ||5000;
 
 // mongo
 const mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://m001-student:m001-mongodb-basics@maysandbox.tfe2sxh.mongodb.net/myFirstDatabase?appName=mongosh+1.5.0" ,
     { useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=>{app.listen(5000,()=>{  // listens on port 3000 for connections
+    .then(()=>{app.listen(PORT,()=>{  // listens on port 3000 for connections
         console.log("Server started on port 5000");
     })})
     .catch((error)=>console.log(error));
