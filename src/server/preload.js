@@ -9,7 +9,7 @@ const BeautyData =
         {   id:'2',
             Name: "Catalina Micaela of Spain",
             Spouse: "Charles Emmanuel I",
-            Title: "Duchess of Savoy",
+            Title: "Duchess of Savoy " ,
             Introduction:"Catherine Michelle of Spain (Spanish: Catalina Micaela de Austria; 10 October 1567 – 6 November 1597) was Duchess of Savoy by marriage to Duke Charles Emmanuel I. She ruled the Duchy several times as regent in Charles Emmanuel's absence, notably during his campaign in 1594.[1] She was the younger surviving daughter of Philip II of Spain and Elisabeth of Valois."
         },
         {   id:'3',
